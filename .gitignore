@@ -1,2 +1,4 @@
 trans.sh
 webpack.config.js
+src/*.js
+

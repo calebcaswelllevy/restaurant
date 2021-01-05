@@ -80,13 +80,19 @@ export function Order() {
         
         //add text
         let orderNumber:number = 0;
+        count.id = "count";
+        sub.classList.add('btn');
+        add.classList.add('btn');
         count.textContent = orderNumber.toString();
         sub.textContent = '-';
         add.textContent = '+';
 
         //Add event listeners to change order number:
         sub.addEventListener('click', () => {
-            orderNumber--;
+            orderNumber > 0 ?
+                orderNumber-- :
+                orderNumber = 0;
+
             count.textContent = orderNumber.toString(); 
         });
 
@@ -99,7 +105,7 @@ export function Order() {
         counter.appendChild(sub);
         counter.appendChild(count);
         counter.appendChild(add);
-        
+
         return counter;
     }
 }

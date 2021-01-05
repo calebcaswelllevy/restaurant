@@ -58,12 +58,17 @@ function Order() {
         var add = document.createElement('button');
         //add text
         var orderNumber = 0;
+        count.id = "count";
+        sub.classList.add('btn');
+        add.classList.add('btn');
         count.textContent = orderNumber.toString();
         sub.textContent = '-';
         add.textContent = '+';
         //Add event listeners to change order number:
         sub.addEventListener('click', function () {
-            orderNumber--;
+            orderNumber > 0 ?
+                orderNumber-- :
+                orderNumber = 0;
             count.textContent = orderNumber.toString();
         });
         add.addEventListener('click', function () {

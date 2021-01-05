@@ -1,0 +1,22 @@
+/* CSS HEX */
+:root {
+--tenne-tawny: #C96228ff;
+--blood-red: #551401ff;
+--almond: #E7D5C0ff;
+--olive: #8B8C13ff;
+--olive-2: #8B8C13ff;
+}
+
+body {
+    background-color:var(--tenne-tawny);
+}
+
+#count {
+    background-color:var(--almond);
+}
+
+.btn {
+    background-color:var(--olive-2);
+    color:white;
+}
+
