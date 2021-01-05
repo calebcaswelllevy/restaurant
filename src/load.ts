@@ -23,13 +23,14 @@ export function Home() {
     titleHolder.appendChild(title);
     mainContent.appendChild(titleHolder);
     content.appendChild(titleHolder);
+
     // Add an image
     let imageHolder:HTMLElement = document.createElement('div');
     let mainImage:HTMLElement = document.createElement('img');
     imageHolder.classList.add('container');
     imageHolder.id = "image-holder";
     mainImage.id = 'main-image';
-    mainImage.setAttribute("src", "/images/1.png");
+    mainImage.setAttribute("src", "/images/storefront.png");
     imageHolder.appendChild(mainImage);
     content.appendChild(imageHolder);
     // Add some text

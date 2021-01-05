@@ -25,7 +25,7 @@ function Home() {
         imageHolder.classList.add('container');
         imageHolder.id = "image-holder";
         mainImage.id = 'main-image';
-        mainImage.setAttribute("src", "/images/1.png");
+        mainImage.setAttribute("src", "/images/storefront.png");
         imageHolder.appendChild(mainImage);
         content.appendChild(imageHolder);
         // Add some text

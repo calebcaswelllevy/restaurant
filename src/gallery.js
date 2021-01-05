@@ -8,8 +8,11 @@ function Menu() {
     load_js_1.makeNavBar();
     var body = document.createElement('body');
     var title = document.createElement('h1');
-    title.textContent = 'Gallery';
+    var menu = document.createElement('img');
+    menu.setAttribute('src', 'https://d2by9dx2k0n1tg.cloudfront.net/menus/8/8279/public.jpg?1302053562');
+    title.textContent = 'Menu';
     body.appendChild(title);
+    body.appendChild(menu);
     mainContent.appendChild(body);
     load_js_1.makeFooter();
 }
