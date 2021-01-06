@@ -14,16 +14,23 @@ function Order() {
         price: 4
     };
     var relleno = {
-        name: 'Chiles Rellenos',
+        name: 'Chiles Rellenos with rice and beans',
         alias: 'relleno',
         price: 6
     };
-    var menu = [jrDeluxe, taco, relleno];
+    var enchilada = {
+        name: 'Cheese Enchiladas with rice and beans',
+        alias: 'enchilada',
+        price: 6
+    };
+    var menu = [jrDeluxe, taco, relleno, enchilada];
     //clear the page
     var mainContent = document.getElementById('content');
     mainContent.innerHTML = "";
     //draw the navBar and content
     load_js_1.makeNavBar();
+    var active = "Order";
+    load_js_1.boldActive(active);
     var content = document.getElementById('content');
     var title = document.createElement('h1');
     title.textContent = 'Order';
@@ -40,6 +47,10 @@ function Order() {
         var image = document.createElement('img');
         var text = document.createElement('div');
         var counter = makeCounter(dish);
+        item.classList.add('item', 'container');
+        image.classList.add('food-pic');
+        text.classList.add('food-text');
+        counter.classList.add('counter');
         //Add content to elements
         text.textContent = dish.name + " - $" + dish.price + ".00";
         image.setAttribute('alt', "A photo of " + dish.name);
@@ -56,11 +67,16 @@ function Order() {
         var sub = document.createElement('button');
         var count = document.createElement('div');
         var add = document.createElement('button');
+        //Add classes and IDs:
+        counter.classList.add('container', 'counter');
+        sub.classList.add('btn', 'count-element');
+        add.classList.add('btn', 'count-element');
+        count.classList.add('count-element');
+        add.id = "add";
+        sub.id = "sub";
+        count.id = "count";
         //add text
         var orderNumber = 0;
-        count.id = "count";
-        sub.classList.add('btn');
-        add.classList.add('btn');
         count.textContent = orderNumber.toString();
         sub.textContent = '-';
         add.textContent = '+';

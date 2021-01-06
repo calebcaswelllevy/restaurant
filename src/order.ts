@@ -1,4 +1,4 @@
-import { makeFooter, makeNavBar } from './load.js';
+import { makeFooter, makeNavBar, boldActive } from './load.js';
 export function Order() {
 
     //represent menu as array of dish objects:
@@ -19,12 +19,18 @@ export function Order() {
         price: 4,
     }
     let relleno:Dish = {
-        name:'Chiles Rellenos',
+        name:'Chiles Rellenos with rice and beans',
         alias: 'relleno',
         price: 6,
     }
 
-    let menu:Dish[] = [jrDeluxe, taco, relleno];
+    let enchilada:Dish = {
+        name: 'Cheese Enchiladas with rice and beans',
+        alias: 'enchilada',
+        price: 6,
+    }
+
+    let menu:Dish[] = [jrDeluxe, taco, relleno, enchilada];
 
     //clear the page
     let mainContent:HTMLElement = document.getElementById('content');
@@ -32,6 +38,9 @@ export function Order() {
 
     //draw the navBar and content
     makeNavBar();
+    let active = "Order";
+    boldActive(active);
+
     let content:HTMLElement = document.getElementById('content');
     let title: HTMLElement = document.createElement('h1');
     title.textContent = 'Order';
@@ -57,6 +66,11 @@ export function Order() {
         let text:HTMLElement = document.createElement('div');
         let counter:HTMLElement = makeCounter(dish);
 
+        item.classList.add('item', 'container');
+        image.classList.add('food-pic');
+        text.classList.add('food-text');
+        counter.classList.add('counter')
+
         //Add content to elements
         
         text.textContent = `${dish.name} - $${dish.price}.00`;
@@ -77,12 +91,19 @@ export function Order() {
         let sub:HTMLElement = document.createElement('button');
         let count:HTMLElement = document.createElement('div');
         let add:HTMLElement = document.createElement('button');
+
+        //Add classes and IDs:
+        counter.classList.add('container', 'counter');
+        sub.classList.add('btn', 'count-element');
+        add.classList.add('btn', 'count-element');
+        count.classList.add('count-element');
+        add.id = "add";
+        sub.id = "sub";
+        count.id = "count";
         
         //add text
         let orderNumber:number = 0;
-        count.id = "count";
-        sub.classList.add('btn');
-        add.classList.add('btn');
+        
         count.textContent = orderNumber.toString();
         sub.textContent = '-';
         add.textContent = '+';
@@ -92,7 +113,6 @@ export function Order() {
             orderNumber > 0 ?
                 orderNumber-- :
                 orderNumber = 0;
-
             count.textContent = orderNumber.toString(); 
         });
 

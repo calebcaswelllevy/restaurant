@@ -7,16 +7,214 @@
 --olive-2: #8B8C13ff;
 }
 
+
+/* */
+
+
 body {
-    background-color:var(--tenne-tawny);
+    background-color:var(--almond);
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    padding-bottom: 2.5rem
+}
+
+/* Format the front page: */
+#main-image {
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px var(--blood-red);
+}
+
+/* Format the counter widget */
+.btn {
+    background-color:var(--olive-2);
+    color:white;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+}
+.btn:active {
+    box-shadow: -2px -2px 4px black;
+}
+.btn:focus {
+    background-color:var(--olive-2);
+    color:white;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+}
+
+.counter {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
+  grid-gap: 6px;
+  justify-items:stretch;
+  justify-content: center;
+}
+
+#sub {
+    grid-column: 2 / span 1;
+}
+
+#add {
+    grid-column: 4 / span 1;
 }
 
 #count {
     background-color:var(--almond);
+    grid-column: 3 / span 1;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 3px;
+    border-color: var(--blood-red);
 }
 
-.btn {
-    background-color:var(--olive-2);
-    color:white;
+.count-element {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
+/* Format the Header: */
+#navBar {
+    display: grid;
+    
+    position:fixed;
+    margin-top: -100px;
+    width:100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color:rgba(231, 213, 192, .96);
+    box-shadow: 0px 0px 10px var(--tenne-tawny);
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    height: 5rem;
+    border-radius: 2px;
+}
+
+ul {
+    list-style: none;
+}
+
+#logo {
+    grid-column-start: 1;
+    grid-column-end:2;
+    width: 220px;
+}
+
+/* Format the title */
+h1 {
+    text-align: center;
+    font-size:3rem;
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+/*Format the dishs on the order page*/
+.item {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    border: 10px solid;
+    border-color: var(--blood-red);
+}
+
+.counter {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.food-text {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;  
+    
+}
+
+.food-pic {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    width: 600px;
+    height: 500px;
+    border-radius: 100px;
+    box-shadow: 2px 2px 10px;
+}
+
+/*Menu formatting*/
+.menu {
+    border-radius:10px;
+    box-shadow: 4px 2px 10px var(--blood-red);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.active {
+    font-weight: bolder;
+    font-size: 1.05em;
+}
+
+/*Format the about page*/
+#about-image {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 60%;
+    box-shadow: 2px 2px 10px var(--blood-red);
+}
+
+#description {
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 40px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*Format the footer*/
+
+    #footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;    
+        background-color:rgba(231, 213, 192, .9);
+        box-shadow: 0px 0px 10px var(--blood-red);
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        font-size: 2rem;
+      }
+    
+      a {
+        padding: 8px;
+        text-decoration: none;
+        color: black;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+
+        a:hover {
+            font-weight: bolder;
+            box-shadow: 2px 2px 10px black;
+        }

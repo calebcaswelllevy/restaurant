@@ -5,20 +5,22 @@ import { Order } from './order';
 
 
 export function Home() {
-    console.log("this is getting through")
+    
     let content:HTMLElement = document.getElementById("content");
     content.innerHTML = "";
     
     let mainContent:HTMLElement = document.createElement("div");
 
     makeNavBar();
-    
+    let active = "Home";
+    boldActive(active);
+
 
     //flesh out mainContent:
     let makeBody = (function(){
     let titleHolder:HTMLElement = document.createElement('div');
     let title:HTMLElement = document.createElement('h1');
-    title.textContent = "El Tarasco Mexican Food";
+    title.textContent = "";
     title.id = 'title';
     titleHolder.appendChild(title);
     mainContent.appendChild(titleHolder);
@@ -27,12 +29,11 @@ export function Home() {
     // Add an image
     let imageHolder:HTMLElement = document.createElement('div');
     let mainImage:HTMLElement = document.createElement('img');
-    imageHolder.classList.add('container');
-    imageHolder.id = "image-holder";
+    mainImage.classList.add('main-image');
     mainImage.id = 'main-image';
-    mainImage.setAttribute("src", "/images/storefront.png");
-    imageHolder.appendChild(mainImage);
-    content.appendChild(imageHolder);
+    mainImage.setAttribute("src", "/images/main.png");
+    
+    content.appendChild(mainImage);
     // Add some text
     })()
 
@@ -44,7 +45,7 @@ export function Home() {
 export function makeFooter() {
     let content:HTMLElement = document.getElementById("content");
     let footer:HTMLElement = document.createElement('div');
-    footer.innerHTML = '<ul><li><a href="">First thing</a></li><li><a href="">Second Thing</a></li><li><a href="">Third Thing</a></li></ul>';
+    footer.innerHTML = '<a href="www.calebcaswelllevy.gitub.io">Website developed by Caleb Caswell-Levy</a>';
     footer.id = "footer";
     content.appendChild(footer);
 }
@@ -54,6 +55,15 @@ export function makeNavBar() {
     let content:HTMLElement = document.getElementById("content");
     let navBar:HTMLElement = document.createElement("ul");
     let tabs: string[] = ["Home", "Menu", "Order", "About"];
+    navBar.id = 'navBar';
+    navBar.classList.add('container');
+
+    //Add image to navBar
+    let image:HTMLElement = document.createElement("img");
+    image.setAttribute('src', 'images/header.png');
+    image.setAttribute('alt', 'El Tarasco Logo');
+    image.id = 'logo';
+    navBar.appendChild(image);
 
     //add elements to NavBar:
     for (let i = 0; i<4; i++) {
@@ -68,7 +78,6 @@ export function makeNavBar() {
     }
 
    // Add navbar to document
-    navBar.classList.add("navbar");
     content.appendChild(navBar);
 
  //add event listeners to nav bar elements:
@@ -81,4 +90,18 @@ export function makeNavBar() {
     order.addEventListener('click', Order);
     about.addEventListener('click', About);
 
+}
+
+export function boldActive(active) {
+    let navbar = document.getElementById('navBar');
+
+    for (let i = 1; i< 5; i++) {
+
+        if (navbar.childNodes[i].childNodes[0].textContent === active) { 
+   
+            navbar.childNodes[i].childNodes[0].classList.add('active');
+        } else {
+            navbar.childNodes[i].childNodes[0].classList.remove('active');
+        }
+    }
 }

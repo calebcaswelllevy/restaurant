@@ -1,20 +1,21 @@
 "use strict";
 exports.__esModule = true;
-exports.makeNavBar = exports.makeFooter = exports.Home = void 0;
+exports.boldActive = exports.makeNavBar = exports.makeFooter = exports.Home = void 0;
 var gallery_1 = require("./gallery");
 var about_1 = require("./about");
 var order_1 = require("./order");
 function Home() {
-    console.log("this is getting through");
     var content = document.getElementById("content");
     content.innerHTML = "";
     var mainContent = document.createElement("div");
     makeNavBar();
+    var active = "Home";
+    boldActive(active);
     //flesh out mainContent:
     var makeBody = (function () {
         var titleHolder = document.createElement('div');
         var title = document.createElement('h1');
-        title.textContent = "El Tarasco Mexican Food";
+        title.textContent = "";
         title.id = 'title';
         titleHolder.appendChild(title);
         mainContent.appendChild(titleHolder);
@@ -22,12 +23,10 @@ function Home() {
         // Add an image
         var imageHolder = document.createElement('div');
         var mainImage = document.createElement('img');
-        imageHolder.classList.add('container');
-        imageHolder.id = "image-holder";
+        mainImage.classList.add('main-image');
         mainImage.id = 'main-image';
-        mainImage.setAttribute("src", "/images/storefront.png");
-        imageHolder.appendChild(mainImage);
-        content.appendChild(imageHolder);
+        mainImage.setAttribute("src", "/images/main.png");
+        content.appendChild(mainImage);
         // Add some text
     })();
     // add the footer below the main content:
@@ -38,7 +37,7 @@ exports.Home = Home;
 function makeFooter() {
     var content = document.getElementById("content");
     var footer = document.createElement('div');
-    footer.innerHTML = '<ul><li><a href="">First thing</a></li><li><a href="">Second Thing</a></li><li><a href="">Third Thing</a></li></ul>';
+    footer.innerHTML = '<a href="www.calebcaswelllevy.gitub.io">Website developed by Caleb Caswell-Levy</a>';
     footer.id = "footer";
     content.appendChild(footer);
 }
@@ -48,6 +47,14 @@ function makeNavBar() {
     var content = document.getElementById("content");
     var navBar = document.createElement("ul");
     var tabs = ["Home", "Menu", "Order", "About"];
+    navBar.id = 'navBar';
+    navBar.classList.add('container');
+    //Add image to navBar
+    var image = document.createElement("img");
+    image.setAttribute('src', 'images/header.png');
+    image.setAttribute('alt', 'El Tarasco Logo');
+    image.id = 'logo';
+    navBar.appendChild(image);
     //add elements to NavBar:
     for (var i = 0; i < 4; i++) {
         var listElement = document.createElement("li");
@@ -60,7 +67,6 @@ function makeNavBar() {
         navBar.appendChild(listElement);
     }
     // Add navbar to document
-    navBar.classList.add("navbar");
     content.appendChild(navBar);
     //add event listeners to nav bar elements:
     var home = document.getElementById('link-0');
@@ -73,3 +79,15 @@ function makeNavBar() {
     about.addEventListener('click', about_1.About);
 }
 exports.makeNavBar = makeNavBar;
+function boldActive(active) {
+    var navbar = document.getElementById('navBar');
+    for (var i = 1; i < 5; i++) {
+        if (navbar.childNodes[i].childNodes[0].textContent === active) {
+            navbar.childNodes[i].childNodes[0].classList.add('active');
+        }
+        else {
+            navbar.childNodes[i].childNodes[0].classList.remove('active');
+        }
+    }
+}
+exports.boldActive = boldActive;
